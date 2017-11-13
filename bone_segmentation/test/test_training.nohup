@@ -1,0 +1,51 @@
+Using TensorFlow backend.
+1
+
+train images/masks shape:
+(11, 1, 565, 565)
+train images range (min-max): 0.0078431372549 - 1.0
+train masks are within 0-1
+
+(11, 1, 565, 565)
+(11, 1, 565, 565)
+48
+48
+patches per full image: 600
+1
+
+train PATCHES images/masks shape:
+(6600, 1, 48, 48)
+train PATCHES images range (min-max): 0.0078431372549 - 1.0
+./src/pelvis_training.py:66: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Tensor("ac..., inputs=Tensor("in...)`
+  model = Model(input=inputs, output=conv7)
+Check: final output of the network:
+(None, 2304, 2)
+./src/pelvis_training.py:191: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.
+  model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+Train on 5940 samples, validate on 660 samples
+Epoch 1/7
+2017-10-18 13:22:44.364075: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-18 13:22:44.364092: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-18 13:22:44.364096: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-18 13:22:44.364101: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-18 13:22:44.364106: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Epoch 00000: val_loss improved from inf to 0.47168, saving model to ./test/test_best_weights.h5
+531s - loss: 0.5473 - acc: 0.7721 - val_loss: 0.4717 - val_acc: 0.8955
+Epoch 2/7
+Epoch 00001: val_loss improved from 0.47168 to 0.40519, saving model to ./test/test_best_weights.h5
+533s - loss: 0.5332 - acc: 0.7739 - val_loss: 0.4052 - val_acc: 0.8955
+Epoch 3/7
+Epoch 00002: val_loss improved from 0.40519 to 0.37951, saving model to ./test/test_best_weights.h5
+523s - loss: 0.5311 - acc: 0.7739 - val_loss: 0.3795 - val_acc: 0.8955
+Epoch 4/7
+Epoch 00003: val_loss did not improve
+523s - loss: 0.5300 - acc: 0.7739 - val_loss: 0.3995 - val_acc: 0.8955
+Epoch 5/7
+Epoch 00004: val_loss did not improve
+525s - loss: 0.5296 - acc: 0.7739 - val_loss: 0.3880 - val_acc: 0.8968
+Epoch 6/7
+Epoch 00005: val_loss did not improve
+514s - loss: 0.5291 - acc: 0.7745 - val_loss: 0.4102 - val_acc: 0.8969
+Epoch 7/7
+Epoch 00006: val_loss did not improve
+510s - loss: 0.5278 - acc: 0.7744 - val_loss: 0.4126 - val_acc: 0.8970
