@@ -1,4 +1,3 @@
-# risauto
+# Bone segmentation
 
-#This is my Msc. project. The goal is to automate de classification of the risser
-#index on frontal hip Xrays using deep learning.
+#Was an attempt to use tf-unet on xrays
